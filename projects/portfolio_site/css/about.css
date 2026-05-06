@@ -35,3 +35,16 @@
 .about-content p {
     margin-bottom: 1rem;
 }
+
+/* [REFACTOR] Optimize responsive for About */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .about-image img {
+        max-width: 200px; /* Thu nhỏ avatar trên mobile */
+    }
+}

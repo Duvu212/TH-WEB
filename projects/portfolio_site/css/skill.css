@@ -45,3 +45,10 @@
 .skill-progress.animate {
     width: var(--progress);
 }
+
+/* [REFACTOR] Optimize responsive for Skills */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
