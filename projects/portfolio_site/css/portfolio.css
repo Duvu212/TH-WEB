@@ -1,0 +1,41 @@
+.portfolio-grid {
+    display: grid;
+    /* Dùng auto-fill và minmax để responsive: 3 col trên desktop, 1-2 col trên mobile/tablet */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.portfolio-item img {
+    aspect-ratio: 4/3;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Styling cho Filter Buttons */
+.portfolio-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 2px solid var(--color-primary);
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--color-primary);
+    color: white;
+}
