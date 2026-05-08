@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/hero.css">
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/skill.css">
+    <link rel="stylesheet" href="css/portfolio.css">
 </head>
 <body>
     <header class="main-header">
@@ -92,15 +93,22 @@
 
                 <section class="portfolio-grid">
                     <figure class="portfolio-item" data-category="web">
-                        <img src="https://via.placeholder.com/400x300" alt="E-Commerce Website">
-                        <figcaption class="portfolio-overlay">
-                            <h3>E-Commerce Website</h3>
-                            <p>React + Node.js</p>
-                        </figcaption>
+                        <a href="#lightbox-1" class="lightbox-link">
+                            <img src="https://via.placeholder.com/400x300" alt="E-Commerce Website">
+                            <figcaption class="portfolio-overlay">
+                                <h3>E-Commerce Website</h3>
+                                <p>React + Node.js</p>
+                            </figcaption>
+                        </a>
                     </figure>
                 </section>
             </section>
         </section>
+
+        <article id="lightbox-1" class="lightbox">
+            <img src="https://via.placeholder.com/400x300" alt="E-Commerce Website">
+            <a href="#portfolio" class="lightbox-close">&times;</a>
+        </article>
     </main>
     <script src="js/main.js"></script>
 </body>
