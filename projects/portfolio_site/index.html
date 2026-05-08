@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/skill.css">
     <link rel="stylesheet" href="css/portfolio.css">
+    <link rel="stylesheet" href="css/contact.css">
 </head>
 <body>
     <header class="main-header">
@@ -109,6 +110,44 @@
             <img src="https://via.placeholder.com/400x300" alt="E-Commerce Website">
             <a href="#portfolio" class="lightbox-close">&times;</a>
         </article>
+
+        <section id="contact" class="contact-section">
+            <section class="container">
+                <h2>Get In Touch</h2>
+                <article class="contact-wrapper">
+                    
+                    <address class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p>Feel free to reach out. I'm always open to discussing new projects or opportunities.</p>
+                        <p class="info-item">
+                            <span class="icon">📧</span>
+                            <span>du.vuquang@example.com</span>
+                        </p>
+                        <p class="info-item">
+                            <span class="icon">📍</span>
+                            <span>Hanoi, Vietnam</span>
+                        </p>
+                    </address>
+
+                    <form class="contact-form">
+                        <fieldset class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </fieldset>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+
+                </article>
+            </section>
+        </section>
     </main>
     <script src="js/main.js"></script>
 </body>
