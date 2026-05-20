@@ -393,4 +393,3 @@ function deleteStudent(index) {
   }
 
 }
-renderStudents();
