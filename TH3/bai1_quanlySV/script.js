@@ -212,3 +212,85 @@ btnClose.addEventListener(
 
   }
 );
+
+// ===== SUBMIT FORM =====
+
+studentForm.addEventListener(
+  "submit",
+  function(event) {
+
+    event.preventDefault();
+
+    const student = {
+
+      id: studentId.value,
+
+      name: studentName.value,
+
+      birth: studentBirth.value,
+
+      className: studentClass.value,
+
+      score: studentScore.value,
+
+      email: studentEmail.value
+
+    };
+
+    // THÊM
+
+    if (editIndex === -1) {
+
+      students.push(student);
+
+      showMessage(
+        "Thêm sinh viên thành công"
+      );
+
+    }
+
+    // SỬA
+
+    else {
+
+      students[editIndex] = student;
+
+      showMessage(
+        "Cập nhật sinh viên thành công"
+      );
+
+    }
+
+    saveStudents();
+
+    renderStudents();
+
+    closeModal();
+
+  }
+);
+
+// ===== LƯU LOCAL STORAGE =====
+
+function saveStudents() {
+
+  localStorage.setItem(
+    "students",
+    JSON.stringify(students)
+  );
+
+}
+
+// ===== HIỂN THỊ THÔNG BÁO =====
+
+function showMessage(text) {
+
+  message.innerText = text;
+
+  setTimeout(function() {
+
+    message.innerText = "";
+
+  }, 2000);
+
+}
