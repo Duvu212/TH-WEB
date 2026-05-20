@@ -294,3 +294,103 @@ function showMessage(text) {
   }, 2000);
 
 }
+
+// ===== CLICK SỬA XÓA =====
+
+studentTableBody.addEventListener(
+  "click",
+  function(event) {
+
+    const clicked =
+      event.target;
+
+    // SỬA
+
+    if (
+      clicked.classList.contains("btn-edit")
+    ) {
+
+      const index =
+        clicked.getAttribute("data-index");
+
+      editStudent(index);
+
+    }
+
+    // XÓA
+
+    if (
+      clicked.classList.contains("btn-delete")
+    ) {
+
+      const index =
+        clicked.getAttribute("data-index");
+
+      deleteStudent(index);
+
+    }
+
+  }
+);
+
+// ===== SỬA =====
+
+function editStudent(index) {
+
+  const student =
+    students[index];
+
+  studentId.value =
+    student.id;
+
+  studentName.value =
+    student.name;
+
+  studentBirth.value =
+    student.birth;
+
+  studentClass.value =
+    student.className;
+
+  studentScore.value =
+    student.score;
+
+  studentEmail.value =
+    student.email;
+
+  editIndex = index;
+
+  formTitle.innerText =
+    "Cập nhật sinh viên";
+
+  studentId.disabled = true;
+
+  openModal();
+
+}
+
+// ===== XÓA =====
+
+function deleteStudent(index) {
+
+  const confirmDelete =
+    confirm(
+      "Bạn có chắc muốn xóa?"
+    );
+
+  if (confirmDelete) {
+
+    students.splice(index, 1);
+
+    saveStudents();
+
+    renderStudents();
+
+    showMessage(
+      "Xóa thành công"
+    );
+
+  }
+
+}
+renderStudents();
