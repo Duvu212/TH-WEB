@@ -1,5 +1,3 @@
-
-
 const btnAddStudent =
   document.getElementById("btnAddStudent");
 
@@ -47,11 +45,60 @@ const studentScore =
 const studentEmail =
   document.getElementById("studentEmail");
 
+// ===== DỮ LIỆU MẶC ĐỊNH =====
+
+const defaultStudents = [
+  {
+    id: "SV123456",
+    name: "Nguyễn Văn A",
+    birth: "2000-01-15",
+    className: "A",
+    score: 8.5,
+    email: "nguyenvana@gmail.com"
+  },
+
+  {
+    id: "SV234567",
+    name: "Trần Thị B",
+    birth: "1999-05-20",
+    className: "B",
+    score: 9,
+    email: "tranthib@gmail.com"
+  },
+
+  {
+    id: "SV345678",
+    name: "Lê Văn C",
+    birth: "2001-03-10",
+    className: "C",
+    score: 7.8,
+    email: "levanc@gmail.com"
+  },
+
+  {
+    id: "SV456789",
+    name: "Phạm Thị D",
+    birth: "2000-07-25",
+    className: "D",
+    score: 8.2,
+    email: "phamthid@gmail.com"
+  },
+
+  {
+    id: "SV567890",
+    name: "Hoàng Văn E",
+    birth: "1998-12-05",
+    className: "A",
+    score: 9.5,
+    email: "hoangvane@gmail.com"
+  }
+];
+
 // ===== MẢNG DỮ LIỆU =====
 
 let students =
   JSON.parse(localStorage.getItem("students"))
-  || [];
+  || defaultStudents;
 
 // BIẾN KIỂM TRA ĐANG SỬA HAY THÊM
 
@@ -393,3 +440,7 @@ function deleteStudent(index) {
   }
 
 }
+
+// ===== HIỂN THỊ KHI CHẠY =====
+
+renderStudents();
