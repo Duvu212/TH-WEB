@@ -45,6 +45,24 @@ const studentScore =
 const studentEmail =
   document.getElementById("studentEmail");
 
+const errorStudentId =
+  document.getElementById("errorStudentId");
+
+const errorStudentName =
+  document.getElementById("errorStudentName");
+
+const errorStudentBirth =
+  document.getElementById("errorStudentBirth");
+
+const errorStudentClass =
+  document.getElementById("errorStudentClass");
+
+const errorStudentScore =
+  document.getElementById("errorStudentScore");
+
+const errorStudentEmail =
+  document.getElementById("errorStudentEmail");
+
 // ===== DỮ LIỆU MẶC ĐỊNH =====
 
 const defaultStudents = [
@@ -234,6 +252,174 @@ function resetForm() {
 
   studentId.disabled = false;
 
+  clearErrors();
+}
+// ===== XÓA LỖI =====
+function clearErrors() {
+
+  errorStudentId.innerText = "";
+  errorStudentName.innerText = "";
+  errorStudentBirth.innerText = "";
+  errorStudentClass.innerText = "";
+  errorStudentScore.innerText = "";
+  errorStudentEmail.innerText = "";
+
+  studentId.classList.remove("input-error");
+  studentName.classList.remove("input-error");
+  studentBirth.classList.remove("input-error");
+  studentClass.classList.remove("input-error");
+  studentScore.classList.remove("input-error");
+  studentEmail.classList.remove("input-error");
+
+}
+
+// ===== VALIDATE FORM =====
+function validateForm() {
+
+  clearErrors();
+
+  let isValid = true;
+
+  const idValue =
+    studentId.value.trim();
+
+  const nameValue =
+    studentName.value.trim();
+
+  const birthValue =
+    studentBirth.value;
+
+  const classValue =
+    studentClass.value.trim();
+
+  const scoreValue =
+    studentScore.value;
+
+  const emailValue =
+    studentEmail.value.trim();
+
+  const idPattern =
+    /^SV[0-9]{6}$/;
+
+  const emailPattern =
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (idValue === "") {
+
+    errorStudentId.innerText =
+      "Mã sinh viên không được để trống";
+
+    studentId.classList.add("input-error");
+
+    isValid = false;
+
+  } else if (!idPattern.test(idValue)) {
+
+    errorStudentId.innerText =
+      "Mã sinh viên phải có dạng SV123456";
+
+    studentId.classList.add("input-error");
+
+    isValid = false;
+
+  }
+
+  if (nameValue === "") {
+
+    errorStudentName.innerText =
+      "Họ tên không được để trống";
+
+    studentName.classList.add("input-error");
+
+    isValid = false;
+
+  } else if (nameValue.length < 3) {
+
+    errorStudentName.innerText =
+      "Họ tên phải có ít nhất 3 ký tự";
+
+    studentName.classList.add("input-error");
+
+    isValid = false;
+
+  }
+
+  if (birthValue === "") {
+
+    errorStudentBirth.innerText =
+      "Ngày sinh không được để trống";
+
+    studentBirth.classList.add("input-error");
+
+    isValid = false;
+
+  }
+
+  if (classValue === "") {
+
+    errorStudentClass.innerText =
+      "Lớp không được để trống";
+
+    studentClass.classList.add("input-error");
+
+    isValid = false;
+
+  }
+
+  if (scoreValue === "") {
+
+    errorStudentScore.innerText =
+      "Điểm không được để trống";
+
+    studentScore.classList.add("input-error");
+
+    isValid = false;
+
+  } else if (isNaN(scoreValue)) {
+
+    errorStudentScore.innerText =
+      "Điểm phải là số";
+
+    studentScore.classList.add("input-error");
+
+    isValid = false;
+
+  } else if (
+    Number(scoreValue) < 0 ||
+    Number(scoreValue) > 10
+  ) {
+
+    errorStudentScore.innerText =
+      "Điểm phải từ 0 đến 10";
+
+    studentScore.classList.add("input-error");
+
+    isValid = false;
+
+  }
+
+  if (emailValue === "") {
+
+    errorStudentEmail.innerText =
+      "Email không được để trống";
+
+    studentEmail.classList.add("input-error");
+
+    isValid = false;
+
+  } else if (!emailPattern.test(emailValue)) {
+
+    errorStudentEmail.innerText =
+      "Email không đúng định dạng";
+
+    studentEmail.classList.add("input-error");
+
+    isValid = false;
+
+  }
+
+  return isValid;
+
 }
 
 // ===== CLICK MỞ FORM =====
@@ -267,7 +453,10 @@ studentForm.addEventListener(
   function(event) {
 
     event.preventDefault();
-
+    if (!validateForm()) {
+      return;
+    }
+ 
     const student = {
 
       id: studentId.value,
