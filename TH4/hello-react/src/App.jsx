@@ -1,16 +1,10 @@
-import UserProfile from "./UserProfile";
-import ProductInfo from "./ProductInfo";
+import FlowDemo from "./FlowDemo";
 
 function App() {
+
     return (
         <div>
-
-            <UserProfile />
-
-            <hr />
-
-            <ProductInfo />
-
+            <FlowDemo />
         </div>
     );
 }
