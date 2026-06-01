@@ -1,23 +1,28 @@
-import ClickEvents from "./events/ClickEvents";
-import InputEvents from "./events/InputEvents";
-import KeyboardEvents from "./events/KeyboardEvents";
-import FormEvents from "./events/FormEvents";
+import ListBasics from "./crud/ListBasics";
+import CreateItem from "./crud/CreateItem";
+import DeleteItem from "./crud/DeleteItem";
+import UpdateItem from "./crud/UpdateItem";
 
 function App() {
     return (
         <div>
-            <h1>Tier 5 - Events cơ bản</h1>
 
-            <ClickEvents />
+            <h1>Tier 6 - CRUD</h1>
+
+            <ListBasics />
+
             <hr />
 
-            <InputEvents />
+            <CreateItem />
+
             <hr />
 
-            <KeyboardEvents />
+            <DeleteItem />
+
             <hr />
 
-            <FormEvents />
+            <UpdateItem />
+
         </div>
     );
 }
