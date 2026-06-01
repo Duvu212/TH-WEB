@@ -1,24 +1,17 @@
-import UserProfile from "./UserProfile";
-import ProductInfo from "./ProductInfo";
-import LifecycleDemo from "./LifecycleDemo";
-import BadCounter from "./BadCounter";
-import GoodCounter from "./GoodCounter";
-import FlowDemo from "./FlowDemo";
+import SimpleVariables from "./SimpleVariables";
+import ConditionalDemo from "./ConditionalDemo";
+import ListRendering from "./ListRendering";
 
 function App() {
-  return (
-    <div>
-      <h1>Tier 0 và Tier 1 React</h1>
+    return (
+        <div>
+            <h1>Tier 2 - Biến trong JSX</h1>
 
-      <UserProfile />
-      <ProductInfo />
-
-      <LifecycleDemo />
-      <BadCounter />
-      <GoodCounter />
-      <FlowDemo />
-    </div>
-  );
+            <SimpleVariables />
+            <ConditionalDemo />
+            <ListRendering />
+        </div>
+    );
 }
 
 export default App;
