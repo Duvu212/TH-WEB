@@ -1,28 +1,23 @@
-import NumberState from "./state/NumberState";
-import StringState from "./state/StringState";
-import BooleanState from "./state/BooleanState";
-import MultipleStates from "./state/MultipleStates";
+import ClickEvents from "./events/ClickEvents";
+import InputEvents from "./events/InputEvents";
+import KeyboardEvents from "./events/KeyboardEvents";
+import FormEvents from "./events/FormEvents";
 
 function App() {
     return (
         <div>
+            <h1>Tier 5 - Events cơ bản</h1>
 
-            <h1>Tier 4 - useState</h1>
-
-            <NumberState />
-
+            <ClickEvents />
             <hr />
 
-            <StringState />
-
+            <InputEvents />
             <hr />
 
-            <BooleanState />
-
+            <KeyboardEvents />
             <hr />
 
-            <MultipleStates />
-
+            <FormEvents />
         </div>
     );
 }
