@@ -1,27 +1,126 @@
-import ListBasics from "./crud/ListBasics";
-import CreateItem from "./crud/CreateItem";
-import DeleteItem from "./crud/DeleteItem";
-import UpdateItem from "./crud/UpdateItem";
+import { useState } from "react";
+
+import TodoItem from "./components/TodoItem";
+import TodoFilter from "./components/TodoFilter";
 
 function App() {
+
+    const [todos, setTodos] = useState([
+        {
+            id: 1,
+            text: "Học React",
+            done: false
+        }
+    ]);
+
+    const [inputValue, setInputValue] = useState("");
+
+    const [filter, setFilter] = useState("all");
+
+    function addTodo() {
+
+        if (inputValue.trim() === "") return;
+
+        const newTodo = {
+            id: Date.now(),
+            text: inputValue,
+            done: false
+        };
+
+        setTodos([...todos, newTodo]);
+
+        setInputValue("");
+    }
+
+    function toggleTodo(id) {
+
+        setTodos(
+            todos.map(todo =>
+                todo.id === id
+                    ? {
+                        ...todo,
+                        done: !todo.done
+                    }
+                    : todo
+            )
+        );
+    }
+
+    function deleteTodo(id) {
+
+        setTodos(
+            todos.filter(todo => todo.id !== id)
+        );
+    }
+
+    const filteredTodos =
+        todos.filter(todo => {
+
+            if (filter === "active")
+                return !todo.done;
+
+            if (filter === "completed")
+                return todo.done;
+
+            return true;
+        });
+
+    const activeCount =
+        todos.filter(todo => !todo.done).length;
+
     return (
-        <div>
+        <div
+            style={{
+                maxWidth: "600px",
+                margin: "0 auto",
+                padding: "20px"
+            }}
+        >
 
-            <h1>Tier 6 - CRUD</h1>
+            <h1>Todo App</h1>
 
-            <ListBasics />
+            <div
+                style={{
+                    display: "flex",
+                    gap: "10px"
+                }}
+            >
 
-            <hr />
+                <input
+                    value={inputValue}
+                    onChange={(e) =>
+                        setInputValue(e.target.value)
+                    }
+                    placeholder="Nhập công việc..."
+                />
 
-            <CreateItem />
+                <button onClick={addTodo}>
+                    Thêm
+                </button>
 
-            <hr />
+            </div>
 
-            <DeleteItem />
+            <br />
 
-            <hr />
+            <TodoFilter
+                filter={filter}
+                setFilter={setFilter}
+            />
 
-            <UpdateItem />
+            {filteredTodos.map(todo => (
+
+                <TodoItem
+                    key={todo.id}
+                    todo={todo}
+                    onToggle={toggleTodo}
+                    onDelete={deleteTodo}
+                />
+
+            ))}
+
+            <h3>
+                Còn {activeCount} việc chưa hoàn thành
+            </h3>
 
         </div>
     );
