@@ -10,17 +10,17 @@ function UserProfile() {
             />
 
             <table border="1">
+                <tbody>
+                    <tr>
+                        <td>Họ tên:</td>
+                        <td>Duvu</td>
+                    </tr>
 
-                <tr>
-                    <td>Họ tên:</td>
-                    <td>Duvu</td>
-                </tr>
-
-                <tr>
-                    <td>Email:</td>
-                    <td>duvu@example.com</td>
-                </tr>
-
+                    <tr>
+                        <td>Email:</td>
+                        <td>duvu@example.com</td>
+                    </tr>
+                </tbody>
             </table>
 
         </div>
